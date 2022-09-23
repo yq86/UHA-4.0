@@ -1,0 +1,43 @@
+@startuml tables
+Holidays *-- Users
+Demandes *-- Users
+Types *-- Demandes
+Status *-- Demandes
+
+
+class Users {
+#int id;
+#String userName;
+#String password;
+#String firstName;
+#String lastName;
+#String email;
+#int role;
+#date firstWorkingDay;
+}
+
+class Holidays {
+#int UserId;
+#int holidaysAvailable;
+#int holidaysTaken;
+}
+
+class Demandes {
+#int id;
+#int idUser;
+#date startingDate;
+#date endingingDate;
+#int TypeId;
+#int StatusId;
+}
+
+class Types {
+#int id;
+#String name
+}
+
+class Status {
+#int id;
+#String name;
+}
+@enduml

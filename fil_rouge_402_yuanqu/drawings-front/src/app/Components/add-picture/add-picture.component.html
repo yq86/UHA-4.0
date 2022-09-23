@@ -1,0 +1,33 @@
+<div class="modal-body">
+    <form [formGroup]="addPicture" (ngSubmit)="onSubmit()">
+
+        <div class="d-flex justify-content-center"  >
+            <mat-form-field appearance="fill">
+                <mat-label>Picture name</mat-label>
+                <input matInput type="text" placeholder="my picture" formControlName="pictureName" required>
+            </mat-form-field>
+
+        </div>
+  
+        <div class="d-flex justify-content-center" >
+            <mat-form-field appearance="fill">
+                <mat-label>Select shape</mat-label>
+                <mat-select formControlName="shape" >
+                    <mat-option *ngFor="let shape of shapes" [value]="shape">
+                        <div *ngIf="shape.type=='cylinder'">{{shape.id}}.  {{shape.type}},  radius:{{shape.base}},  depth:{{shape.depth}}</div> 
+                        <div *ngIf="shape.type=='rectangular prism'">{{shape.id}}.  {{shape.type}},  base:{{shape.base}},  height:{{shape.height}},  depth:{{shape.depth}}</div> 
+                        <div *ngIf="shape.type=='triangular prism'">{{shape.id}}.  {{shape.type}},  base:{{shape.base}}, side1:{{shape.side1}}, side2:{{shape.side2}}  depth:{{shape.depth}}</div> 
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> 
+        </div>
+
+       
+        
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary">Add</button>
+      </div>
+    </form>
+</div>
+  
+

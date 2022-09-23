@@ -1,0 +1,37 @@
+<div class="cardTab">
+  <div class ="add"> 
+    <button mat-raised-button (click)="addShape()">Create a shape</button>
+  </div>
+
+</div>
+  <div class ="cardTabContainer">  
+      <div class="drawing"  *ngFor="let shape of shapes; let i=index">     
+          <div class="cardTabContent"> 
+              <div class="modify">      
+                <button  mat-menu-item (click)="updateShape(shape.id)">
+                  <mat-icon>update</mat-icon>
+                  <span>modify</span>
+                </button>         
+              </div>   
+
+              
+              <div class="title">{{shape.type}}</div>
+              <div class="total">
+                  <div class="title">details: </div>
+                  <div class="line" *ngIf="shape.type == 'cylinder'">radius: {{shape.base}}</div>
+                  <div class="line" *ngIf="shape.type !== 'cylinder'">base: {{shape.base}}</div>
+                  <div class="line">depth: {{shape.depth}}</div>
+                  <div class="line">x: {{shape.x}}</div>
+                  <div class="line">y: {{shape.y}}</div>
+                  <div class="line" *ngIf="shape.height !== undefined">height: {{shape.height}}</div>
+                  <div class="line" *ngIf="shape.side1 !== undefined">side1: {{shape.side1}}</div>
+                  <div class="line" *ngIf="shape.side2 !== undefined">side2: {{shape.side2}}</div>
+                  <div class="line">perimeter: {{shape.perimeter}}</div>
+                  <div class="line">area: {{shape.area}}</div>
+                  <div class="line">volume: {{shape.volume}}</div>  
+              </div>
+          </div>
+      </div>
+  </div>
+
+

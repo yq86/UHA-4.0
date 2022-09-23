@@ -1,0 +1,40 @@
+<div class ="cardTabContainer">  
+    <div class ="add">    
+        <button  mat-raised-button (click)="openShapesTable()">Add a shape</button>       
+    </div>
+
+    <div>          
+        <canvas id="myCanvas" width="200" height="200" style="border: 1px solid rgb(19, 15, 15)"></canvas>
+    </div>
+       
+    <div class="drawing" *ngFor="let shape of listShape;">
+        
+        <div class="cardTabContent">
+            <div class="modify">      
+                <button  mat-menu-item (click)="deleteShape(shape.id)">
+                  <mat-icon>delete</mat-icon>
+                  <span>delete</span>
+                </button>          
+            </div>  
+   
+            <div class="title">{{shape.type}}</div>
+            <div>base: {{shape.base}}</div>
+            <div>depth: {{shape.depth}}</div>
+            <div *ngIf="shape.height !== undefined"> height: {{shape.height}}</div>
+            <div *ngIf="shape.side1 !== undefined"> side1: {{shape.side1}}</div>
+            <div *ngIf="shape.side2 !== undefined"> side2: {{shape.side2}}</div>
+            <div>x: {{shape.x}}</div>
+            <div>y: {{shape.y}}</div>
+            <div>perimeter: {{shape.perimeter}}</div>
+            <div>area: {{shape.area}}</div>
+            <div>volume: {{shape.volume}}</div>
+        </div>
+        
+    </div>
+    <div class="total">
+        <h1 class="totalTitle">Totals of this picture:</h1>
+        <div class="line">total perimeter: {{totalPerimeter}}</div>
+        <div class="line">total area: {{totalArea}}</div>
+        <div class="line">total volume: {{totalVolume}}</div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="modal-body">
+    <form [formGroup]="addShape" (ngSubmit)="onSubmit(addShape.controls['type'].value)">
+  
+        <div class="d-flex justify-content-center" >
+            <mat-form-field appearance="fill">
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="CIRCLE">Cylinder</mat-option>
+                    <mat-option value="RECTANGLE">Rectangular prism</mat-option>
+                    <mat-option value="TRIANGLE">Triangular prism</mat-option>
+                  </mat-select>
+            </mat-form-field> 
+        </div>
+
+        <div class="d-flex justify-content-center"  >
+            <mat-form-field appearance="fill">
+                <mat-label>base</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="base" required>
+            </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-center" *ngIf="addShape.controls['type'].value == 'RECTANGLE'">
+            <mat-form-field appearance="fill">
+                <mat-label>height</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="height" required>
+            </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <mat-form-field appearance="fill">
+                <mat-label>depth</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="depth" required>
+            </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-center" *ngIf="addShape.controls['type'].value == 'TRIANGLE'">
+            <mat-form-field appearance="fill">
+                <mat-label>side1</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="side1" required>
+            </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-center" *ngIf="addShape.controls['type'].value == 'TRIANGLE'">
+            <mat-form-field appearance="fill">
+                <mat-label>side2</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="side2" required>
+            </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <mat-form-field appearance="fill">
+                <mat-label>x</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="x" required>
+            </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <mat-form-field appearance="fill">
+                <mat-label>y</mat-label>
+                <input matInput type="number" min="1" placeholder="minimum 1" formControlName="y" required>
+            </mat-form-field>
+        </div>
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary">Add</button>
+      </div>
+    </form>
+</div>
+  

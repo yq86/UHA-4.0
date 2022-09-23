@@ -1,0 +1,21 @@
+<div class="header">
+    <div class="title">my shapes space</div>
+    <div>
+        <button class="burger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>reorder</mat-icon>
+        </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/home">
+              
+              <span>Home</span>
+            </button>
+            <button mat-menu-item routerLink="/drawings">
+              <span>Drawings</span>
+            </button>
+            <button mat-menu-item routerLink="/shapes">
+              <span>Shapes</span>
+            </button>
+          </mat-menu>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+<div class ="add"> <!---->
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="bold" (click)="addPicture()">Add a picture</mat-button-toggle>
+        <mat-button-toggle value="italic" (click)="createShape()">Create a shape</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+
+<div class ="cardTabContainer">
+    <div class="drawing"  *ngFor="let drawing of drawings">
+        <div class="cardTabContent">  
+            <div class="modify" *ngIf="drawing.listShape.length==0">      
+                <button  mat-menu-item (click)="deleteDrawing(drawing.id)">
+                  <mat-icon>delete</mat-icon>
+                  <span>delete</span>
+                </button>          
+            </div>     
+            <div class="title">{{drawing.name}}</div>
+            <div >
+                <button mat-raised-button class="cards" routerLink="/drawings"  (click) = "pictureChoice(drawing.id)">
+                   Click to see the details
+                </button>
+            </div>        
+        </div>
+    </div>
+</div>

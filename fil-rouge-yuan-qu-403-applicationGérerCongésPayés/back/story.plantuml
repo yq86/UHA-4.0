@@ -1,0 +1,50 @@
+@startuml
+actor salarié
+actor manager
+participant server
+database db
+
+salarié -> server : demande congés payés
+server-> server: congés payés type 1(congés payés normale)
+server -> db: vérifier si salarié a assez jours de congés payés que demander
+db -> server: oui 
+server -> db: enregistrer ce demande 
+server -> salarié: retourner le demande 
+
+salarié -> server : demande congés payés
+server-> server: congés payés type 1(congés payés normale)
+server -> db: vérifier si salarié a assez jours de congés payés que demander
+db -> server: non 
+server -> salarié: retourner un message
+
+salarié -> server : demande congés payés
+server -> server: demande type n'est pas 1(par example maladie)
+server -> db:  enregistrer ce demande
+server -> salarié: retourner le demande 
+
+manager -> server: valider un congés payés
+server -> server: congés payés type 1(congés payés normale)
+server -> db: mettre à jour status demande \nmettre à jour congés payés
+server -> manager: retourner la demande
+server -> salarié: envoyer un email avec nouveau status de demande
+
+manager -> server: valider un congés payés
+server -> server: congés payés type n'est pas 1(par example maladie)
+server -> db: mettre à status demande
+server -> manager: retourner la demande
+server -> salarié: envoyer un email avec nouveau status de demande
+
+manager -> server: refuser un congés payés
+server <- server: sans description de refuse
+server -> manager: retourner un message
+
+manager -> server: refuser un congés payés
+server -> server: avec description de refuse
+server -> db: mettre à jour status demande
+server -> manager: retourner la demande
+server -> salarié: envoyer un email avec nouveau status de demande
+
+
+server -> manager: envoyer un email de tous les demandes des derniers 5 jours chaque lundi à vendredi à 6h 
+server -> db: supprimer tous les demande avec status de refuse chaque lundi à vendredi à 6h30
+@enduml

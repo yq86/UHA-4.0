@@ -1,0 +1,73 @@
+.cardTabContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+
+.cardTabContent{  
+    box-shadow: inset 0 0 40px -8px #CCE4F4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    z-index: 0;
+    background-color: #F2F8FC;
+   
+}
+
+.drawing{
+    margin-top: 20px;
+    width: 22%;
+}
+
+img {
+    height: 400px;
+    width: 400px;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    margin: 50px 0;
+}
+
+.add{
+    margin-top: 150px;
+    text-align: center;
+}
+
+.modify {
+   margin-left: 70%;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .drawing{
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    .cardTabContainer{
+        display: block;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+        margin-top: 150px;
+        align-content: center;
+    }
+    .cardTabContent{
+        margin: 0 auto 10% auto;
+        
+    }
+
+    .drawing{
+        margin: 0 auto 10% auto;
+        width: 80%;
+    }
+}

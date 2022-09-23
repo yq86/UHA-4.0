@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "srcSpringBoot/main/java/com/example/demo"
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "maven.view": "hierarchical"
+}
