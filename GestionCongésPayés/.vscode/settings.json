@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 12,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "checkstyle.trace.server": "messages",
+    "css.lint.duplicateProperties": "warning",
+    "jest.autoRun": "off"
+    
+}

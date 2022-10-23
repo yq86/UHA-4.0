@@ -1,0 +1,29 @@
+<div class="form">
+    <mat-card>
+            <mat-card-title><mat-icon class="icon-size">account_circle</mat-icon></mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <p>
+            <mat-form-field>
+              <input (mousedown)='initError()' type="text" matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <input (mousedown)='initError()' type="password" matInput placeholder="Password" formControlName="password">
+            </mat-form-field>
+          </p>
+
+          <p *ngIf="error" class="error">
+            {{ error }}
+          </p>
+
+          <div class="button">
+            <button type="submit" mat-raised-button color="primary">Login</button>
+          </div>
+
+        </form>
+      </mat-card-content>
+  </mat-card>
+</div>

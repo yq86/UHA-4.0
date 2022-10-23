@@ -1,0 +1,15 @@
+<div class="page">
+    <app-header></app-header>
+    
+    <router-outlet></router-outlet>
+
+    <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
+        <div class="scrollToTopDiv" (click)="scrollToTop()">
+            <div id="PageUp">Haut de page</div>
+        </div>
+    </div>
+
+
+
+    <app-footer></app-footer>
+</div>

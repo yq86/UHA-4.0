@@ -1,0 +1,73 @@
+version: '3.9'
+
+services:
+  mariadb:
+    container_name: holiday-db
+    image: mariadb:latest
+    env_file: 
+      - .env
+    networks:
+      - holiday
+    ports: 
+      - ${MYSQL_PORT}:${MYSQL_PORT}
+    volumes:
+      - mariadb:/var/lib/mysql
+
+  adminer:
+    container_name: holiday-adminer
+    image: adminer
+    env_file:
+      - .env
+    networks:
+      - holiday
+    depends_on:
+      - mariadb
+    ports: 
+      - 8080:8080
+  api:
+    container_name: holiday-api
+    image: holiday:1.0.0
+    env_file:
+      - .env
+    build:
+      context: back
+      dockerfile: Dockerfile
+    command: ["nodemon", "index.js"]
+    networks:
+      - holiday
+    
+    depends_on:
+      - mariadb
+    ports:
+      - 9090:9090
+    volumes:
+      - ./back:/app
+      - /app/node_modules
+    
+    restart: unless-stopped
+    
+  # web:
+  #   container_name: holiday-web
+  #   image: holidayweb:1.0.0
+  #   env_file:
+  #     - .env
+  #   build:
+  #     context: front
+  #     dockerfile: Dockerfile
+  #   networks:
+  #     - holiday
+  #   command: npm run start
+  #   depends_on:
+  #     - api
+  #   ports:
+  #     - 4200:4200
+  #   volumes:
+  #     - ./front:/app
+  #     - /app/node_modules
+  #   restart: unless-stopped
+    
+
+networks:
+  holiday:
+volumes:
+  mariadb:

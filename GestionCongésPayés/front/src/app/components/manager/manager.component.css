@@ -1,0 +1,23 @@
+.table{
+  margin-top: 200px;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+.container {
+  text-align: center;
+}
+
+.rightCol{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.done {
+  color: greenyellow;
+}
+
+.clear {
+  color: red;
+}

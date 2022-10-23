@@ -1,0 +1,54 @@
+{
+  "value": {
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "My Project CRUD",
+      "description": "My Project Application API",
+      "license": {
+        "name": "hm",
+        "url": ""
+      }
+    }
+  },  
+  "host": "localhost:9090",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+
+  "paths": {
+    "users/": {
+      "post": {
+        
+        "summary": "Get all users in system",
+        "description": "get all the users",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                  "$ref": "#/definitions/todosResponse"
+              }
+            }
+          },
+          "400": {
+              "description": "Invalid status value",
+              "schema": {
+                  "$ref": "#/definitions/InvalidResponse"
+              }
+          }
+        }
+      }
+    }
+  }
+}

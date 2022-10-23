@@ -1,0 +1,11 @@
+<div class="main">
+  <div class="button">
+    <button mat-raised-button *ngIf="this.role==1" (click)="redirect(1)"> Gestion d'Admin</button>
+  </div>
+  <div class="button">
+    <button mat-raised-button *ngIf="this.role ==1||2||3" (click)="redirect(3)"> Gestion de conges</button>
+  </div>
+  <div class="button">
+    <button mat-raised-button *ngIf="this.role != 3" (click)="redirect(2)"> Gestion des demandes</button>
+  </div>
+</div>

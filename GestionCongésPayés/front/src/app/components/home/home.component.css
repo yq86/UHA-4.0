@@ -1,0 +1,22 @@
+.main {
+  margin-top: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button{
+  margin-bottom: 20px;
+  padding: 10px;
+  height: 300px;
+
+}
+
+button {
+    height: 150px;
+    width: 400px;
+    font-size: 30px;
+    color: white;
+    background-color: #20647a ;
+}
+

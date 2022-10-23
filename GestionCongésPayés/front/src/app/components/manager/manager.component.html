@@ -1,0 +1,85 @@
+
+
+<div class="mat-elevation-z8 table">
+  <div>
+
+    <div class="container">
+
+        <h1 class="adminTitle">Gestions des Demandes</h1>
+
+
+    </div>
+
+
+    <mat-table [dataSource]="dataSource">
+
+      <!-- firstName Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef> firstName </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.firstName}} </mat-cell>
+      </ng-container>
+
+      <!-- lastName Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> lastName </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.lastName}} </mat-cell>
+      </ng-container>
+
+      <!-- startingDate Column -->
+      <ng-container matColumnDef="startingDate">
+        <mat-header-cell *matHeaderCellDef> startingDate </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.startingDate}} </mat-cell>
+      </ng-container>
+
+      <!-- endingDate Column -->
+      <ng-container matColumnDef="endingDate">
+        <mat-header-cell *matHeaderCellDef> endingDate </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.endingDate}} </mat-cell>
+      </ng-container>
+
+      <!-- description Column -->
+      <ng-container matColumnDef="description refuse">
+        <mat-header-cell *matHeaderCellDef> description refuse </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.description}} </mat-cell>
+      </ng-container>
+
+      <!-- type Column -->
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> type </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.type}} </mat-cell>
+      </ng-container>
+
+      <!-- status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> status </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{demande.status}} </mat-cell>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let demande">
+            <div class="rightCol">
+              <button mat-icon-button aria-label="Done" (click)="modifyDemande(demande.id, 2)"  >
+                <mat-icon class="done">done</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Clear" (click)="modifyDemande(demande.id, 3)" >
+                <mat-icon class="clear">clear</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Supprimer" (click)="deleteDemande(demande.id)">
+                <mat-icon >delete</mat-icon>
+              </button>
+            </div>
+          </mat-cell>
+        </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic demandes">
+    </mat-paginator>
+  </div>
+</div>

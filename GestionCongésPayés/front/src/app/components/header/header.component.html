@@ -1,0 +1,11 @@
+<div class="header">
+  <div class="total" [ngClass]="{'width': username}">
+    <div class="home" *ngIf="username"><button mat-raised-button class="out" (click)="redirectHome()">home</button></div>
+    <div class="title">Holiday Management</div>
+    <div class="signout">
+      <div *ngIf="username"><button mat-button>welcome {{username}}</button></div>
+      <div *ngIf="username"><button class="out" mat-raised-button (click)="signout()">sign out</button></div>
+    </div>
+  </div>
+</div>
+

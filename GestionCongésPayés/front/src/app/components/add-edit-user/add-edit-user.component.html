@@ -1,0 +1,64 @@
+<div class="f">
+  <h2 *ngIf="!data.userName">New user</h2>
+  <h2 *ngIf="data.userName">Modify user</h2>
+</div>
+<div  class="container">
+
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label *ngIf="!data.userName">userName</mat-label>
+        <mat-label *ngIf="data.userName">{{data.userName}}</mat-label>
+        <input matInput [(ngModel)]="data.userName">
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>firstName</mat-label>
+        <input matInput [(ngModel)]="data.firstName">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>lastName</mat-label>
+        <input matInput [(ngModel)]="data.lastName">
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>password</mat-label>
+        <input matInput [(ngModel)]="data.password">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>email</mat-label>
+        <input matInput [(ngModel)]="data.email">
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field appearance="fill">
+        <mat-label>role</mat-label>
+        <mat-select [(ngModel)]="data.role">
+          <mat-option *ngFor="let role of roles" [value]="role.id">{{role.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row" >
+    <div mat-dialog-actions>
+      <button mat-raised-button >Cancel</button>
+      <button mat-raised-button color="primary" cdkFocusInitial [disabled]="!data.userName">Add</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

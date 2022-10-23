@@ -1,0 +1,75 @@
+
+
+<div class="mat-elevation-z8 table">
+
+    <div class="container">
+      <h1 class="adminTitle">Gestions des Users</h1>
+    </div>
+    <div class="addContainer">
+      <button mat-raised-button class="add" (click)="addUser()" ><mat-icon>add</mat-icon>New User</button>
+    </div>
+
+  <mat-table [dataSource]="dataSource">
+
+    <!-- userName Column -->
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef> UserName </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.userName}} </mat-cell>
+    </ng-container>
+
+    <!-- firstName Column -->
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> firstName </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.firstName}} </mat-cell>
+    </ng-container>
+
+    <!-- lastName Column -->
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> lastName </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.lastName}} </mat-cell>
+    </ng-container>
+
+
+
+    <!-- endingDate Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+    </ng-container>
+
+    <!-- description Column -->
+    <ng-container matColumnDef="role">
+      <mat-header-cell *matHeaderCellDef> role </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.role}} </mat-cell>
+    </ng-container>
+
+    <!-- type Column -->
+    <ng-container matColumnDef="firstWorkingDay">
+      <mat-header-cell *matHeaderCellDef> firstWorkingDay </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.firstWorkingDay | date:'yyyy-MM-dd'}} </mat-cell>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let user">
+          <div class="rightCol">
+            <button mat-icon-button aria-label="Done"   >
+              <mat-icon class="edit" (click)="modifyUser(user.id)">edit</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Supprimer" (click)="deleteUser(user.id)">
+              <mat-icon class="delete">delete</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic users">
+  </mat-paginator>
+</div>

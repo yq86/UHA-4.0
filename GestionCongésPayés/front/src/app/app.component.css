@@ -1,0 +1,42 @@
+
+
+.page{
+    position: relative;
+    min-height: 100%;
+    overflow-y: auto;
+    background-color: lightgray;
+
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    opacity: 0;
+    transition: width 0s, opacity .2s ease-in-out;
+    overflow: hidden;
+    z-index: 98;
+}
+
+.show-scrollTop {
+    width: auto;
+    opacity: 1;
+    transition: width 0s, opacity .2s ease-in-out;
+}
+
+.scrollToTopDiv{
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 17px 0 10px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #147898;
+}
+
+.scrollToTopDiv:hover{
+    background-color: #0f70b7;
+}
